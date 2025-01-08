@@ -28,8 +28,8 @@ body {
             background-color: #50287e; /* Darker purple for hover effect */
         }
         .stop {
-            background-color: #f44336; /* Matches red stop button */
+            background-color: #5c2d91; /* Matches red stop button */
         }
         .stop:hover {
-            background-color: #e53935; /* Darker red for hover effect */
+            background-color: #50287e; /* Darker red for hover effect */
         }
