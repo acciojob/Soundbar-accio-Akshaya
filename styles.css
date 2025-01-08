@@ -1,1 +1,35 @@
 /*  your css code here. If applicable */
+body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #8a4aff; /* Matches purple background */
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #5c2d91; /* Matches button color */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: lowercase;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #50287e; /* Darker purple for hover effect */
+        }
+        .stop {
+            background-color: #f44336; /* Matches red stop button */
+        }
+        .stop:hover {
+            background-color: #e53935; /* Darker red for hover effect */
+        }
