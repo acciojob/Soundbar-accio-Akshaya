@@ -33,3 +33,19 @@ body {
 .btn:hover, .stop:hover {
     background-color: #512e5f;
 }
+
+@media (max-width: 600px) {
+    #buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.btn:focus, .stop:focus {
+    outline: 3px solid #f39c12;
+}
+
+.btn:disabled, .stop:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
