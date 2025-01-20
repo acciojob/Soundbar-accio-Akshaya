@@ -1,44 +1,46 @@
-const audioElements = [];
+// Create an object to map audio elements by their IDs
+const audioElements = {
+  sound1: document.getElementById('sound1'),
+  sound2: document.getElementById('sound2'),
+  sound3: document.getElementById('sound3'),
+  sound4: document.getElementById('sound4'),
+  sound5: document.getElementById('sound5'),
+  sound6: document.getElementById('sound6'),
+};
 
-function createAudioElement(id, src) {
-    const audio = new Audio(src);
-    audio.id = id;
-    audioElements.push(audio);
+// Set the volume for all audio elements to 1.0 (maximum volume)
+for (let sound in audioElements) {
+  audioElements[sound].volume = 1.0;  // Set maximum volume
 }
 
-document.getElementById('sound1').addEventListener('click', function() {
-    createAudioElement('sound1', 'sounds/applause.mp3');
-    audioElements[0].play();
+// Add event listeners to buttons
+document.getElementById('btn-sound1').addEventListener('click', function() {
+    document.getElementById('sound1').play();
 });
 
-document.getElementById('sound2').addEventListener('click', function() {
-    createAudioElement('sound2', 'sounds/boo.mp3');
-    audioElements[1].play();
+document.getElementById('btn-sound2').addEventListener('click', function() {
+    document.getElementById('sound2').play();
 });
 
-document.getElementById('sound3').addEventListener('click', function() {
-    createAudioElement('sound3', 'sounds/gasp.mp3');
-    audioElements[2].play();
+document.getElementById('btn-sound3').addEventListener('click', function() {
+    document.getElementById('sound3').play();
 });
 
-document.getElementById('sound4').addEventListener('click', function() {
-    createAudioElement('sound4', 'sounds/tada.mp3');
-    audioElements[3].play();
+document.getElementById('btn-sound4').addEventListener('click', function() {
+    document.getElementById('sound4').play();
 });
 
-document.getElementById('sound5').addEventListener('click', function() {
-    createAudioElement('sound5', 'sounds/victory.mp3');
-    audioElements[4].play();
+document.getElementById('btn-sound5').addEventListener('click', function() {
+    document.getElementById('sound5').play();
 });
-
-document.getElementById('sound6').addEventListener('click', function() {
-    createAudioElement('sound6', 'sounds/wrong.mp3');
-    audioElements[5].play();
+document.getElementById('btn-sound6').addEventListener('click', function() {
+    document.getElementById('sound6').play();
 });
-
+// Stop all sounds when the stop button is clicked
 document.getElementById('stopButton').addEventListener('click', function() {
-    audioElements.forEach((audio) => {
-        audio.pause();
-        audio.currentTime = 0;
-    });
+    const audios = document.getElementsByTagName('audio');
+    for(let i = 0; i < audios.length; i++) {
+        audios[i].pause();
+        audios[i].currentTime = 0;  // Reset current time
+    }
 });
