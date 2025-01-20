@@ -1,32 +1,37 @@
-//your JS code here. If required.
-const soundFiles = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
-const buttonsContainer = document.getElementById('buttons');
-const createButton = (label, className, onClickHandler) => {
-const button = document.createElement('button');
-    button.className = className;
-    button.textContent = label;
-    button.addEventListener('click', onClickHandler);
-    return button;
-};
+// Array of sounds
+const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
 
-const sounds = {};
-
-soundFiles.forEach(sound => {
-    const audio = new Audio(`./sounds/${sound}.mp3`);
-    sounds[sound] = audio;
-
-    const button = createButton(sound, 'btn', () => {
-        stopAllSounds();
-        audio.play();
-    });
-
+// Dynamically create buttons for each sound
+const buttonsContainer = document.querySelector('.container');
+sounds.forEach((sound) => {
+    const button = document.createElement('button');
+    button.classList.add('btn');
+    button.textContent = sound;
+    button.addEventListener('click', () => playSound(sound));
     buttonsContainer.appendChild(button);
 });
-const stopButton = createButton('stop', 'btn stop', stopAllSounds);
-buttonsContainer.appendChild(stopButton);
-function stopAllSounds() {
-    Object.values(sounds).forEach(audio => {
+
+// Play the selected sound
+function playSound(sound) {
+    stopSounds();
+    const audio = new Audio(`./sounds/${sound}.mp3`);
+    audio.play();
+    audio.setAttribute('data-playing', 'true');
+}
+
+// Stop all sounds
+function stopSounds() {
+    const audios = document.querySelectorAll('audio[data-playing="true"]');
+    audios.forEach((audio) => {
         audio.pause();
         audio.currentTime = 0;
+        audio.removeAttribute('data-playing');
     });
 }
+
+// Create the stop button
+const stopButton = document.createElement('button');
+stopButton.classList.add('stop');
+stopButton.textContent = 'stop';
+stopButton.addEventListener('click', stopSounds);
+buttonsContainer.appendChild(stopButton);
