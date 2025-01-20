@@ -1,63 +1,44 @@
-// Array of sound names
-const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
+const audioElements = [];
 
-// Select the container for buttons
-const buttonsContainer = document.getElementById("buttons");
-
-// Function to stop all sounds
-function stopAllSounds() {
-    sounds.forEach((sound) => {
-        const audio = document.getElementById(sound);
-        if (audio) {
-            audio.pause();
-            audio.currentTime = 0;
-        }
-    });
+function createAudioElement(id, src) {
+    const audio = new Audio(src);
+    audio.id = id;
+    audioElements.push(audio);
 }
 
-// Function to play a sound
-function playSound(sound) {
-    stopAllSounds(); // Stop other sounds before playing
-    const audio = document.getElementById(sound);
-    if (audio && audio.readyState >= 3) { // Ensure audio is ready
-        audio.play().catch(error => {
-            console.error("Error playing audio:", error);
-        });
-    } else {
-        console.log(`Audio for ${sound} is not ready yet.`);
-    }
-}
-
-// Generate buttons dynamically
-sounds.forEach((sound) => {
-    const button = document.createElement("button");
-    button.classList.add("btn");
-    button.textContent = sound;
-    button.addEventListener("click", () => playSound(sound));
-
-    // Append button to the container
-    buttonsContainer.appendChild(button);
-
-    // Add audio element for the sound
-    const audio = document.createElement("audio");
-    audio.id = sound;
-    audio.src = `sounds/${sound}.mp3`; // Assuming sounds folder has .mp3 files
-
-    // Ensure the audio is loaded properly
-    audio.addEventListener("canplaythrough", () => {
-        console.log(`${sound} is ready to play`);
-    });
-
-    audio.addEventListener("error", (event) => {
-        console.error(`Error loading ${sound}:`, event);
-    });
-
-    document.body.appendChild(audio);
+document.getElementById('sound1').addEventListener('click', function() {
+    createAudioElement('sound1', 'sounds/applause.mp3');
+    audioElements[0].play();
 });
 
-// Create the "Stop" button
-const stopButton = document.createElement("button");
-stopButton.classList.add("stop");
-stopButton.textContent = "stop";
-stopButton.addEventListener("click", stopAllSounds);
-buttonsContainer.appendChild(stopButton);
+document.getElementById('sound2').addEventListener('click', function() {
+    createAudioElement('sound2', 'sounds/boo.mp3');
+    audioElements[1].play();
+});
+
+document.getElementById('sound3').addEventListener('click', function() {
+    createAudioElement('sound3', 'sounds/gasp.mp3');
+    audioElements[2].play();
+});
+
+document.getElementById('sound4').addEventListener('click', function() {
+    createAudioElement('sound4', 'sounds/tada.mp3');
+    audioElements[3].play();
+});
+
+document.getElementById('sound5').addEventListener('click', function() {
+    createAudioElement('sound5', 'sounds/victory.mp3');
+    audioElements[4].play();
+});
+
+document.getElementById('sound6').addEventListener('click', function() {
+    createAudioElement('sound6', 'sounds/wrong.mp3');
+    audioElements[5].play();
+});
+
+document.getElementById('stopButton').addEventListener('click', function() {
+    audioElements.forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+});

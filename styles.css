@@ -1,51 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #9b59b6;
-    margin: 0;
+body{
+	background-color:#B57EDC;
 }
-
-.container {
-    text-align: center;
-}
-
 #buttons {
     display: flex;
     gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
-.btn, .stop {
-    background-color: #6c3483;
+.btn {
+	align-items:center;
+    background-color: #9932CC; 
     color: white;
+    padding: 10px 20px;
     border: none;
-    padding: 15px 20px;
-    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.btn:hover, .stop:hover {
-    background-color: #512e5f;
+.btn:hover {
+    background-color: #45a049;
 }
 
-@media (max-width: 600px) {
-    #buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-.btn:focus, .stop:focus {
-    outline: 3px solid #f39c12;
-}
-
-.btn:disabled, .stop:disabled {
-    background-color: #bdc3c7;
-    cursor: not-allowed;
-}
