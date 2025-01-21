@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Player</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <section id="buttons">
-  <button class="btn" id="btn-sound1">applause</button>
-  <button class="btn" id="btn-sound2">boo</button>
-  <button class="btn" id="btn-sound3">gasp</button>
-  <button class="btn" id="btn-sound4">tada</button>
-  <button class="btn" id="btn-sound5">victory</button>
-  <button class="btn" id="btn-sound6">wrong</button>
-  <button class="stop" id="stopButton">Stop All</button>
-</section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sounds</title>
+  </head>
+  <body>
+    <audio src="sounds/applause.mp3" id="applause"></audio>
+    <audio src="sounds/boo.mp3" id="boo"></audio>
+    <audio src="sounds/gasp.mp3" id="gasp"></audio>
+    <audio src="sounds/tada.mp3" id="tada"></audio>
+    <audio src="sounds/victory.mp3" id="victory"></audio>
+    <audio src="sounds/wrong.mp3" id="wrong"></audio>
+    
+    <div id="buttons">
+      <button class="btn">applause</button>
+      <button class="btn">boo</button>
+      <button class="btn">gasp</button>
+      <button class="btn">tada</button>
+      <button class="btn">victory</button>
+      <button class="btn">wrong</button>
+      <button class="stop">stop</button>
+    </div>
 
-<!-- Add audio elements in the HTML -->
-<audio id="sound1" src="sounds/applause.mp3"></audio>
-<audio id="sound2" src="sounds/boo.mp3"></audio>
-<audio id="sound3" src="sounds/gasp.mp3"></audio>
-<audio id="sound4" src="sounds/tada.mp3"></audio>
-<audio id="sound5" src="sounds/victory.mp3"></audio>
-<audio id="sound6" src="sounds/wrong.mp3"></audio>
-
-
-    <script src="scripts.js"></script>
-</body>
+    
+    <script src="script.js"></script>
+  </body>
 </html>
